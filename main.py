@@ -18,7 +18,7 @@ class app():
 
     def __init__(self):
 
-        self.root = pygame.display.set_mode((self.WIDTH, self.HEIGHT), pygame.OPENGL | pygame.DOUBLEBUF | pygame.FULLSCREEN)
+        self.root = pygame.display.set_mode((self.WIDTH, self.HEIGHT), pygame.OPENGL | pygame.DOUBLEBUF | pygame.NOFRAME)
         glViewport(0, 0, self.WIDTH, self.HEIGHT)
         glEnable(GL_DEPTH_TEST)
 

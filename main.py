@@ -34,11 +34,11 @@ class app():
         scrnSpace = screenSpace()
         font = pygame.font.Font (None, 64)
 
-        shaders = program("shaders.glsl")
+        shaders = program("mengerSponge.glsl")
         shaders.use()
 
         fov = np.array([np.pi/2, (np.pi/2) * (self.HEIGHT/self.WIDTH)], dtype = np.float32)
-        playerPos = np.array([0, 4, 0], dtype = np.float32)
+        playerPos = np.array([0, 1, 0], dtype = np.float32)
         playerRot = np.array([0, 0], dtype = np.float32)
 
         shaders.setVector2("fov", fov)
@@ -48,21 +48,21 @@ class app():
         shaders.setInt("numLights", 3)
 
         shaders.use()
-        shaders.setVector3("lights[0].pos", np.array([2, 4, 0], dtype = np.float32))
-        shaders.setVector3("lights[0].color", np.array([1, 0, 0], dtype = np.float32))
+        shaders.setVector3("lights[0].pos", np.array([0, 1, 0], dtype = np.float32))
+        shaders.setVector3("lights[0].color", np.array([1, 1, 1], dtype = np.float32))
         shaders.setFloat("lights[0].intensity", 5)
 
-        shaders.setVector3("lights[1].pos", np.array([-1, 4, -np.sqrt(2)], dtype = np.float32))
-        shaders.setVector3("lights[1].color", np.array([0, 1, 0], dtype = np.float32))
-        shaders.setFloat("lights[1].intensity", 5)
+        shaders.setVector3("lights[1].pos", np.array([-10, 40, -10*np.sqrt(2)], dtype = np.float32))
+        shaders.setVector3("lights[1].color", np.array([0.5, 1, 0.5], dtype = np.float32))
+        shaders.setFloat("lights[1].intensity", 100)
 
-        shaders.setVector3("lights[2].pos", np.array([-1, 4, np.sqrt(2)], dtype = np.float32))
-        shaders.setVector3("lights[2].color", np.array([0, 0, 1], dtype = np.float32))
-        shaders.setFloat("lights[2].intensity", 5)
+        shaders.setVector3("lights[2].pos", np.array([-10, 40, 10*np.sqrt(2)], dtype = np.float32))
+        shaders.setVector3("lights[2].color", np.array([0.5, 0.5, 1], dtype = np.float32))
+        shaders.setFloat("lights[2].intensity", 100)
 
-        shaders.setVector3("lights[3].pos", np.array([0, 50, 0], dtype = np.float32))
+        shaders.setVector3("lights[3].pos", np.array([0, -40, 0], dtype = np.float32))
         shaders.setVector3("lights[3].color", np.array([1, 1, 1], dtype = np.float32))
-        shaders.setFloat("lights[3].intensity", 10)
+        shaders.setFloat("lights[3].intensity", 100)
 
         refTime = time.time()
 

@@ -66,9 +66,12 @@ float sdBox( vec3 p, vec3 b )
 }
 
 const float Power = 8.0;
+const float Bailout = 2.0;
+const int Iterations = 20;
+const float scale = 1;
 
 float DE(vec3 pos) {
-	vec3 z = pos;
+	vec3 z = pos * scale;
 	float dr = 1.0;
 	float r = 0.0;
 	for (int i = 0; i < Iterations ; i++) {
@@ -89,21 +92,17 @@ float DE(vec3 pos) {
 		z = zr*vec3(sin(theta)*cos(phi), sin(phi)*sin(theta), cos(theta));
 		z+=pos;
 	}
-	return 0.5*log(r)*r/dr;
+	return (0.5*log(r)*r/dr)/scale;
 }
 
 sdfResult SDF(vec3 pos) {
     sdfResult result;
 
     //result.dist = distance(vec3(mod(pos.x,10)-5, pos.y, mod(pos.z,10)-5), vec3(0,0,0)) - 2;
-    float dist1 = sdBox(pos, vec3(10,1,10));
+    //float dist1 = sdBox(pos-vec3(0,-10,0), vec3(1,1,1));
     float dist2 = DE(pos-vec3(0,2,0));
 
-    if (dist1 < dist2) {
-        result.dist = dist1;
-    } else {
-        result.dist = dist2;
-    }
+    result.dist = dist2;
 
     result.color = vec3(1,1,1);
     result.ref = 0;

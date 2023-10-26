@@ -5,14 +5,12 @@ The loaded demo scene shows three reflective sphere illuminated with three light
 
 # Gallery
 
-The top two were generated with the code in this repo, the others are from older generations of the project
-
-![image](image1.png)
-<video width=100% height=auto controls>
-  <source src="video1.mp4" type="video/mp4">
-</video>
+The top four were generated with the code in this repo, the others are from older generations of the project
 
 
 ![image](image1.png)
-![image](image1.png)
-![image](image1.png)
+![image](image2.png)
+![image](image3.png)
+![image](image4.png)
+![image](image5.png)
+![image](image6.png)
